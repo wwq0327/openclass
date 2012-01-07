@@ -1,10 +1,12 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+                       url(r'', include('demo.urls')),
     # Examples:
     # url(r'^$', 'openclass.views.home', name='home'),
     # url(r'^openclass/', include('openclass.foo.urls')),
