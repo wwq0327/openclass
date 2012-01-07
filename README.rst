@@ -41,6 +41,7 @@ OpenClass
 - 连接并提交
 
 ::
+
   cd openclass
   git remote add origin git@github.com:wwq0327/openclass.git
   git push -u origin master
