@@ -30,3 +30,19 @@ OpenClass
 
 服务器
 ====================================
+
+合作
+====================================
+
+当被管理员添加到合作者后，可以通过下面操作提交代码：
+
+按README所述，创建一个虚拟环境
+- pull 代码到本地
+- 连接并提交
+
+::
+  cd openclass
+  git remote add origin git@github.com:wwq0327/openclass.git
+  git push -u origin master
+
+就这就OK了。
