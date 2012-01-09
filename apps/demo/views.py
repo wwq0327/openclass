@@ -8,3 +8,8 @@ def index(request):
 
     return render_to_response("demo/index.html", var)
 
+
+def subject(request):
+    var = RequestContext(request)
+
+    return render_to_response("demo/subject.html", var)
