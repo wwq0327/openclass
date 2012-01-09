@@ -69,6 +69,13 @@ hr {
 }
 
 /* 按钮 表单 */
+
+input,textarea {
+    padding: 5px;
+    font-size: 12pt;
+    border: 1px solid #ccc;
+}
+
 textarea {
     border: 1px solid #ccc;
     width: 658px;
@@ -86,7 +93,7 @@ button {
         width: 120px;
         overflow: visible;
         text-decoration: center;
-        margin: 0;
+        margin: 0 0 5px 0;
         padding: 1px 3px;
         background-color: #feeefe;
         border: 1px solid #ddd;
@@ -101,6 +108,22 @@ button:hover {
         -webkit-box-shadow: -2px 2px 2px #ccc;
 }
 
+#create_form {
+
+}
+
+
+#create_form p label {
+    display: block;
+    margin: 0 0 5px 0;
+}
+
+#create_form p input,
+#create_form p textarea {
+    width: 948px;
+    padding: 5px;
+    font-size: 1.2em;
+}
 
 /* 分栏 */
 div#wrapper {

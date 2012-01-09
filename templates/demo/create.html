@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} 创建新课程 {% endblock %}
+
+{% block content_title %} 创建新课程{% endblock %}
+
+{% block content %}
+
+<form method="post" action="." id="create_form">
+  <p><label for="congory">所属类别:</label>
+  <select name="congory">
+    <option value="1">计算机</option>
+    <option value="2">心理学</option>
+    <option value="3">生物学</option>
+  </select>
+  </p>
+  <p><label for="master">讲师：</label>
+    <input name="master" type="text" />
+  </p>
+
+  <p><label for="m_jj">讲师简介：</label>
+    <textarea name="m_jj"></textarea>
+  </p>
+  <p><label for="p_jj">课程简介：</label>
+    <textarea name="p_jj"></textarea>
+  </p>
+
+  <button type="submit">创建</buttom>
+</form>
+
+{% endblock %}

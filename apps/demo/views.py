@@ -18,3 +18,8 @@ def project(request):
     var = RequestContext(request)
 
     return render_to_response("demo/project.html", var)
+
+def create(request):
+    var = RequestContext(request)
+
+    return render_to_response("demo/create.html", var)
