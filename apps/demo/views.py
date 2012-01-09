@@ -13,3 +13,8 @@ def subject(request):
     var = RequestContext(request)
 
     return render_to_response("demo/subject.html", var)
+
+def project(request):
+    var = RequestContext(request)
+
+    return render_to_response("demo/project.html", var)

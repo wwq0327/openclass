@@ -68,6 +68,41 @@ hr {
     padding: 5px 0;
 }
 
+/* 按钮 表单 */
+textarea {
+    border: 1px solid #ccc;
+    width: 658px;
+    height: 6em;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+button {
+        font-weight: normal;
+        color: #444;
+        font-size: 16px;
+        line-height: 22px;
+        height: 40px;
+        width: 120px;
+        overflow: visible;
+        text-decoration: center;
+        margin: 0;
+        padding: 1px 3px;
+        background-color: #feeefe;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        float: right;
+}
+
+button:hover {
+        background-color: #fff; border: 1px solid #aaa;color: #000
+        -moz-box-shadow: -2px 2px 2px #ccc;
+        box-shadow: -2px 2px 2px #ccc;
+        -webkit-box-shadow: -2px 2px 2px #ccc;
+}
+
+
+/* 分栏 */
 div#wrapper {
     margin: 0 auto;
     padding: 0;
@@ -86,6 +121,7 @@ div#right-side {
     width: 270px;
 }
 
+/* 课程学习页面 */
 .video {
     width: 100%;
     display: block;
@@ -123,37 +159,6 @@ h3, h4, h5 {
 h1 a:link, h1 a, h1 a:hover {
 }
 
-textarea {
-    border: 1px solid #ccc;
-    width: 658px;
-    height: 6em;
-    padding: 5px;
-    margin-bottom: 5px;
-}
-
-button {
-        font-weight: normal;
-        color: #444;
-        font-size: 16px;
-        line-height: 22px;
-        height: 40px;
-        width: 120px;
-        overflow: visible;
-        text-decoration: center;
-        margin: 0;
-        padding: 1px 3px;
-        background-color: #feeefe;
-        border: 1px solid #ddd;
-        cursor: pointer;
-        float: right;
-}
-
-button:hover {
-        background-color: #fff; border: 1px solid #aaa;color: #000
-        -moz-box-shadow: -2px 2px 2px #ccc;
-        box-shadow: -2px 2px 2px #ccc;
-        -webkit-box-shadow: -2px 2px 2px #ccc;
-}
 
 .s_c {
     clear: both;
@@ -220,3 +225,5 @@ a img {
     font-size: 0.8em;
     text-align: left;
 }
+
+/* 课程页面 */
