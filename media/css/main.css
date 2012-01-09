@@ -227,3 +227,63 @@ a img {
 }
 
 /* 课程页面 */
+.pro_title {
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.add_sub {
+    float: right;
+}
+
+.add_sub a {
+    font-weight: normal;
+    background-color: yellow;
+}
+
+.pl {
+    width: 270px;
+    float: left;
+}
+
+.pl img {
+    margin-top: 12px;
+    padding: 5px;
+    border: 1px solid #eee;
+}
+
+.pr {
+    width: 670px;
+    float: right;
+    padding: 0;
+
+}
+
+#pro_info {
+    width: 960px;
+}
+
+.box h3 {
+    border-bottom: 1px solid #ccc;
+    padding: 2px;
+}
+
+.zcblks1 {
+    /*background: url("http://i2.sinaimg.cn/edu/deco/2011/0308/images/gkk_wzc32.png") repeat scroll 0 0 transparent;*/
+    background-color: #eee;
+    border: 1px solid #97CBDC;
+    display: inline;
+    float: left;
+    font-size: 14px;
+    height: 90px;
+    margin: 5px;
+    text-align: center;
+    width: 150px;
+}
+
+.zcblks1 h3 {
+    border: 0 none;
