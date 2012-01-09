@@ -260,7 +260,6 @@ a img {
     width: 670px;
     float: right;
     padding: 0;
-
 }
 
 #pro_info {
@@ -292,4 +291,56 @@ a img {
 ul.p_i {
     margin-left: 0;
     padding-left: 1em;
+}
+
+/* tops */
+#topcontrol { width:36px; height:36px; position:absolute; right:-30px;}
+#topcontrol a{ display:block; cursor:pointer; outline:none;}
+
+
+/* index */
+#c_list {
+    display: block;
+    width: 960px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.c_one {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    float: left;
+    font-size: 12pt;
+    height: 210px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+    margin: 0 38px 1.5em 0;
+}
+
+.c_one img {
+    width: 192px;
+    margin: 4px;
+    overflow: hidden;
+}
+
+.p_title {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px;
+    margin-bottom: 2px;
+}
+
+.sns ul {
+    margin: 0;
+    padding: 0;
+}
+
+.sns li {
+    margin: 2px;
+    list-style-type: none;
+    padding-left: 10px;
+    float: left;
+    font-size: 0.8em;
+    text-align: center;
 }
