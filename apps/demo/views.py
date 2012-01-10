@@ -23,3 +23,8 @@ def create(request):
     var = RequestContext(request)
 
     return render_to_response("demo/create.html", var)
+
+def home(request):
+    var = RequestContext(request)
+
+    return render_to_response("demo/home.html", var)

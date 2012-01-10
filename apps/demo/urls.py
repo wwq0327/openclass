@@ -5,4 +5,5 @@ urlpatterns = patterns('',
                        url(r'^subject/$', 'demo.views.subject'),
                        url(r'^project/$', 'demo.views.project'),
                        url(r'^project/create/$', 'demo.views.create'),
+                       url(r'^home/$', 'demo.views.home'),
 )
