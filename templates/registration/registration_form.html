@@ -1,0 +1,25 @@
+{% extends "registration/base_registration.html" %}
+
+
+{% block title %}注册帐号{% endblock %}
+{% block body_class %}{{ block.super }} registration_form{% endblock %}
+
+
+{% block content_title %}
+  <h2>注册帐号</h2>
+{% endblock %}
+
+
+{% block content %}
+  <form action="." method="post">{% csrf_token %}
+    <p><label for="id_username">用户名:</label>
+    <p><input id="id_username" type="text" class="required" name="username" maxlength="30" /></p>
+    <p><label for="id_email">邮箱地址:</label>
+    <p><input id="id_email" type="text" class="required" name="email" maxlength="75" /></p>
+    <p><label for="id_password1">密码:</label>
+    <p> <input id="id_password1" type="password" class="required" name="password1" /></p>
+    <p><label for="id_password2">密码确认:</label>
+    <p> <input id="id_password2" type="password" class="required" name="password2" /></p>
+    <p class="submit"><button type="submit">注册</button></p>
+  </form>
+{% endblock %}

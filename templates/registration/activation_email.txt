@@ -1,0 +1,13 @@
+感谢你注册我们的网站： {{ site.domain }}
+
+你所注册的帐号还需要通过点击下面的链接才能激活：
+
+http://{{ site.domain }}{% url registration_activate activation_key %}
+
+（ 如果链接不可直接打开，请将上面的链接复制到你的浏览器地址栏打开。）
+
+你还有 {{ expiration_days}} 天的时间去激活这个帐号。
+
+***
+
+如果你本人根本就没有在本站注册过，那么你大可直接删除本邮件。

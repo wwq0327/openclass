@@ -1,0 +1,16 @@
+{% extends "registration/base_registration.html" %}
+
+
+{% block title %}注册成功{% endblock %}
+{% block body_class %}{{ block.super }} registration_complete{% endblock %}
+
+
+{% block content_title %}
+  <h2>注册成功</h2>
+{% endblock %}
+
+
+{% block content %}
+  <h3>请激活你的帐号</h3>
+  <p>我们的系统会自动发送一封激活验证邮件到你刚才所注册的邮箱中，请你在七天之类登录你所注册邮箱，点击链接进行激活。</p>
+{% endblock %}

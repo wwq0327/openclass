@@ -1,0 +1,23 @@
+{% extends "registration/base_registration.html" %}
+
+
+{% block title %}用户登录{% endblock %}
+{% block body_class %}{{ block.super }}login_form{% endblock %}
+
+
+{% block content_title %}
+  <h2>请登录</h2>
+{% endblock %}
+
+
+{% block content %}
+  <form action="." method="post" class="login_form">{% csrf_token %}
+  	{{ form.username.errors }}
+    <p><label for="id_username">用户名:</label></p>
+    <p><input id="id_username" type="text" name="username" maxlength="30" /></p>
+    <p><label for="id_password">密码:</label></p>
+    <p><input type="password" name="password" id="id_password" /></p>
+    <p class="submit"><button type="submit" name="submit" value="Login">登录</button></p>
+    {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+  </form>
+{% endblock %}

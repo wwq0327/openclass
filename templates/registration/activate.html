@@ -1,0 +1,15 @@
+{% extends "registration/base_registration.html" %}
+
+
+{% block title %}帐号激活失败{% endblock %}
+{% block body_class %}{{ block.super }} registration_activate{% endblock %}
+
+
+{% block content_title %}
+  <h2>帐号激活失败！</h2>
+{% endblock %}
+
+
+{% block content %}
+  <p>激活密钥 "{{ activation_key }}" 过期或已被使用过。</p>
+{% endblock %}
