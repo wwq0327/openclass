@@ -18,11 +18,14 @@
         <li><a href="/">首页</a></li>
         <li><a href="/project/">课程</a></li>
         <li><a href="#">帮助</a></li>
+        {% if user.is_authenticated %}
         <li><a href="/home/">我的主页</a></li>
         <li><a href="/project/create/">创建课程</a></li>
         <li><a href="/accounts/logout/">退出</a></li>
+        {% else %}
         <li><a href="/accounts/login/">登录</a></li>
         <li><a href="/accounts/register/">注册</a></li>
+        {% endif %}
       </ul>
       </div>
     </div>

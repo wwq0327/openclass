@@ -6,6 +6,10 @@
 
 {% block content %}
 
-欢迎你，USER
+{% if user.is_authenticated %}
+  欢迎你， {{ user.username }}
+{% else %}
+  欢迎你，USER
+{% endif %}
 
 {% endblock %}
