@@ -47,6 +47,12 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+#login
+
+LOGIN_URL = "/signin/"
+LOGIN_URL = "/logout/"
+LOGIN_REDIRECT_URL = "/home/"
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
@@ -91,11 +97,18 @@ SECRET_KEY = 'n5*%=q8442&59b&-v3iu-s)ig=#u^07f5c#s3%0tpbje^6n+t%'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    os.path.join(PROJECT_ROOT, 'templates'),
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+    )
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -103,11 +116,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.csrf.CsrfResponseMiddleware',
 )
 
 ROOT_URLCONF = 'openclass.urls'
 
 TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -121,11 +136,32 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'demo',
+
+    ## ext
+    'registration',
 )
+
+# paginate
+# PAGINATION_DEFAULT_PAGINATION = 6
+
+ACCOUNT_ACTIVATION_DAYS = 7
+#AUTH_PROFILE_MODULE = "accounts.Profiles"
+REGISTRATION_OPEN = True
+TAG_LIST_LEVEL = 5
+
+#email
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'wwq0327@gmail.com'
+
+EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT =
+EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'wwq0327@gmail.com'
+EMAIL_USE_TLS = True
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
