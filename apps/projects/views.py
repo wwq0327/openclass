@@ -33,7 +33,14 @@ def subject(request, sub_pk):
     return render_to_response('projects/subject.html', var)
 
 def prj_create(request):
-    form = ProjectForm()
+
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            prj = form.save(user=request.user)
+            return HttpResponseRedirect(prj.get_absolute_url())
+    else:
+        form = ProjectForm()
 
     var = RequestContext(request, {'form': form})
     return render_to_response('projects/prj_create.html', var)
@@ -45,7 +52,7 @@ def subj_create(request, prj_pk):
         form = SubjectForm(request.POST)
         if form.is_valid():
             sub = form.save(user=request.user, project=prj)
-            return HttpResponseRedirect(sub.get_absolute_url())
+            return HttpResponseRedirect(sub.project.get_absolute_url())
     else:
         form = SubjectForm()
 

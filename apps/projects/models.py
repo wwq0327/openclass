@@ -8,6 +8,22 @@ from django.contrib.auth.models import User
 from tagging.fields import TagField
 from tagging.models import Tag
 
+from utils import get_partition_id, safe_filename
+from storage import ImageStorage
+
+## def determine_image_upload_path(instance, filename):
+##     return "uploads/%(partition)d_%(filename)s" % {
+##         'partition': get_partition_id(instance.pk),
+##         'filename': safe_filename(filename),
+##         }
+
+
+def determine_image_upload_path(instance, filename):
+    return "uploads/%(filename)s" % {
+        ## 'partition': get_partition_id(instance.pk),
+        'filename': safe_filename(filename),
+        }
+
 class Project(models.Model):
     CATEGORY_CHOICES = (
         ('1', u'哲学'),
@@ -29,7 +45,8 @@ class Project(models.Model):
     pub_date = models.DateTimeField(editable=False)
     updated_date = models.DateTimeField(editable=False)
     total = models.IntegerField(u'总课时数')
-    image = models.ImageField(u'图片', upload_to="uploads")
+    image = models.ImageField(u'图片', upload_to=determine_image_upload_path, storage=ImageStorage())
+
     tags = TagField(u'标签', blank=True, help_text=u"给本课程打上标签，标签间请用空间分隔")
 
     class Meta:
