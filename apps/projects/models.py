@@ -15,6 +15,7 @@ class Project(models.Model):
         ('3', u'历史'),
         ('4', u'经济'),
         ('5', u'计算机'),
+        ('6', u'物理'),
         ('0', u'其它')
         )
 
@@ -39,7 +40,8 @@ class Project(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        pass
+        return ('pro_detail', (), {
+            'pro_pk': self.pk })
 
     def _get_tags(self):
         return Tag.objects.get_for_object(self)
@@ -56,6 +58,7 @@ class Project(models.Model):
 
 class Subject(models.Model):
     project = models.ForeignKey(Project)
+    name = models.CharField(max_length=255)
     creater = models.ForeignKey(User)
     site = models.URLField()
     pub_date = models.DateTimeField(auto_now_add=True, default=datetime.datetime.now)
@@ -72,3 +75,8 @@ class Subject(models.Model):
         self.updated_date = datetime.datetime.now()
 
         super(Subject, self).save(*args, **kwargs)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('sub_detail', (), {
+            'sub_pk': self.pk})
