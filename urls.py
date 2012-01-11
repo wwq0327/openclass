@@ -11,6 +11,7 @@ urlpatterns = patterns('',
 
                        url(r'^accounts/', include('registration.urls')),
                        url(r'^admin/', include(admin.site.urls)),
+                       url(r'comments/', include('django.contrib.comments.urls')),
 )
 
 media_url = settings.MEDIA_URL.lstrip('/').rstrip('/')

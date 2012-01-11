@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load comments %}
 {% block title %} 首页 {% endblock %}
 
 {% block content_title %} 计算机科学 > 第一集{% endblock %}
@@ -41,40 +41,27 @@
 
 <div id="wrapper">
   <div id="main">
+    {% get_comment_list for projects.subject subject.id as comment_list %}
+    {% get_comment_count for projects.subject subject.id as comment_count %}
     <div class="s_c">
     <h3>评论</h3>
+  <!--
     <form method="post" action="#" class="comment">
       <textarea id="id_comment" name="comment"></textarea>
       <button type="submit">贴上去</button>
-    </form>
+    </form> -->
+    {% render_comment_form for projects.subject subject.id %} <a name="#C"></a>
     </div>
     <div class="s_c">
-      <h3>共有XX条评论</h3>
+      <h3>共有 {{ comment_count }} 条评论</h3>
+
         <ul class="mbt">
+        {% for comment in comment_list %}
           <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
-          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
-            <div class="s_c_c">东西不错，特来说说。</div>
+          <li class="mbtr"><span class="s_c_h">{{ comment.user.username }} 在 {{ comment.submit_date|date:"Y-m-d H:i" }} 评论道：</span>
+            <div class="s_c_c">{{ comment.comment|escape|urlizetrunc:40|linebreaks }}</div>
           </li>
-
-          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
-          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
-            <div class="s_c_c">东西不错，特来说说。</div>
-          </li>
-
-          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
-          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
-            <div class="s_c_c">东西不错，特来说说。</div>
-          </li>
-
-          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
-          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
-            <div class="s_c_c">东西不错，特来说说。</div>
-          </li>
-
-          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
-          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
-            <div class="s_c_c">东西不错，特来说说。</div>
-          </li>
+        {% endfor %}
         </ul>
      </div>
 
