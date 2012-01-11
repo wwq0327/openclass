@@ -10,7 +10,7 @@
   {% if projects %}
     {% for pro in projects %}
   <div class="c_one">
-    <img src="{{ MEDIA_URL }}{{ pro.image }}" />
+    <a href="{{ pro.get_absolute_url }}"><img src="{{ MEDIA_URL }}{{ pro.image }}" /></a>
     <div class="p_title"><a href="{{ pro.get_absolute_url }}">{{ pro.name }}</a></div>
     <div class="sns">
       <ul>

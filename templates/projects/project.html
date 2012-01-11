@@ -36,7 +36,7 @@
 <div id="wrapper">
   <div id="main" class="subject_info">
     <div class="box">
-      <h3>课时列表<span class="add_sub">><a href="/project/create/"> 添加新课时</a></span></h3>
+      <h3>课时列表<span class="add_sub">><a href="/project/{{ project.pk }}/create/"> 添加新课时</a></span></h3>
       <div>
       {% if subjects %}
         {% for sub in subjects %}

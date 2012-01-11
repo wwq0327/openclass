@@ -49,8 +49,8 @@ USE_L10N = True
 
 #login
 
-LOGIN_URL = "/signin/"
-LOGIN_URL = "/logout/"
+LOGIN_URL = "/accounts/login/"
+LOGIN_URL = "/accounts/logout/"
 LOGIN_REDIRECT_URL = "/home/"
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
@@ -140,9 +140,12 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'demo',
+    'projects',
 
     ## ext
+    'south',
     'registration',
+    'tagging',
 )
 
 # paginate
@@ -150,7 +153,7 @@ INSTALLED_APPS = (
 
 ACCOUNT_ACTIVATION_DAYS = 7
 #AUTH_PROFILE_MODULE = "accounts.Profiles"
-REGISTRATION_OPEN = True
+REGISTRATION_OPEN = False
 TAG_LIST_LEVEL = 5
 
 #email

@@ -66,7 +66,7 @@ class Subject(models.Model):
     s_num = models.IntegerField()
 
     class Meta:
-        ordering = ['id']
+        ordering = ['s_num']
 
     def __unicode__(self):
         return self.site

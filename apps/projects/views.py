@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
 from projects.models import Project, Subject
+from projects.forms import ProjectForm, SubjectForm
 
 def index(request):
     projects = Project.objects.all()
@@ -30,3 +31,21 @@ def subject(request, sub_pk):
     var = RequestContext(request, {'subject': subject})
 
     return render_to_response('projects/subject.html', var)
+
+def prj_create(request):
+    form = ProjectForm()
+
+    var = RequestContext(request, {'form': form})
+    return render_to_response('projects/prj_create.html', var)
+
+def subj_create(request, prj_pk):
+    prj = get_object_or_404(Project, pk=prj_pk)
+
+    if request.method == 'POST':
+        form = SubjectForm(request.POST)
+    else:
+        form = SubjectForm()
+
+    var = RequestContext(request, {'form': form})
+
+    return render_to_response('projects/subj_create.html', var)
