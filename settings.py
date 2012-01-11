@@ -137,12 +137,15 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'django.contrib.comments',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'demo',
     'projects',
+    'people',
 
     ## ext
+    'django_gravatar',
     'south',
     'registration',
     'tagging',
@@ -155,6 +158,9 @@ ACCOUNT_ACTIVATION_DAYS = 7
 #AUTH_PROFILE_MODULE = "accounts.Profiles"
 REGISTRATION_OPEN = False
 TAG_LIST_LEVEL = 5
+
+MAX_IMAGE_SIZE = 1024 * 700
+MAX_UPLOAD_SIZE = 1024 * 1024 * 50
 
 #email
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

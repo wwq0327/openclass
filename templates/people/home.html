@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}  个人主页 {% endblock %}
+
+{% block content_title %} 个人主页 {% endblock %}
+
+{% block content %}
+hello, {{ user.username }}
+
+<div id="wrapper">
+  <div id="main">
+    <div class="box">
+      <h3>你所创建的课程</h3>
+      <ul>
+        {% if projects %}
+          {% for prj in projects %}
+            <li><a href="{{ prj.get_absolute_url }}">{{ prj.name }}</a> 创建于 {{ prj.pub_date|date:"Y-m-d H:i" }}</li>
+          {% endfor %}
+      </ul>
+        {% else %}
+          你暂时还未创建课程
+        {% endif  %}
+    </div>
+  </div>
+  <div id="right-side">
+    <div class="box">
+      <h3>关于我</h3>
+      <p> Name: {{ user.name }}</p>
+      <p> Email: {{ user.email }}</p>
+    </div>
+
+    <div class="box">
+      <h3>我的好友</h3>
+       <p> 张三 </p>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
