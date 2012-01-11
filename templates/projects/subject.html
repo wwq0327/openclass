@@ -16,11 +16,11 @@
      <div class="box">
        <h3>讲师简介</h3>
        <p class="con_p">{{ subject.project.master }}</p>
-       <p class="con_p">{{ subject.project.m_description|escape }}</p>
+       <p class="con_p">{{ subject.project.m_description|escape|linebreaksbr }}</p>
      </div>
      <div class="box">
        <h3>课程简介</h3>
-       <p class="con_p">{{ subject.project.p_description|escape }}</p>
+       <p class="con_p">{{ subject.project.p_description|escape|linebreaksbr }}</p>
      </div>
 
      <div class="box">
@@ -36,7 +36,7 @@
 <div id="share-box">
     分享到: 微博  QQ空间 豆瓣
 
-    <a href="#">加入学习</a> <a href="#">关注本课</a>
+<a href="javascript:join_s('{{ subject.project.pk }}')">加入学习</a> <a href="#">关注本课</a>
 
 </div>
 

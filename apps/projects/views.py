@@ -4,11 +4,13 @@ from django.http import Http404, HttpResponseRedirect, HttpResponseForbidden
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
-
+from django.utils import simplejson
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from projects.models import Project, Subject
 from projects.forms import ProjectForm, SubjectForm
+from people.models import PrjStudy
 
 def index(request):
     projects = Project.objects.all()
@@ -59,3 +61,14 @@ def subj_create(request, prj_pk):
     var = RequestContext(request, {'form': form})
 
     return render_to_response('projects/subj_create.html', var)
+
+@login_required
+def prjstudy(request, prj_pk):
+    prj = Project.objects.get(pk=prj_pk)
+    user = request.user
+
+    join_s = PrjStudy(projcet=prj, user=user)
+    join_s.save()
+
+
+
