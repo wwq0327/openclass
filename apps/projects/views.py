@@ -9,6 +9,12 @@ from django.contrib.auth.models import User
 
 from projects.models import Project, Subject
 
+def index(request):
+    projects = Project.objects.all()
+
+    var = RequestContext(request, {'projects': projects})
+    return render_to_response('projects/index.html', var)
+
 def project(request, pro_pk):
     project = get_object_or_404(Project, pk=pro_pk)
     subjects = Subject.objects.filter(project=project)

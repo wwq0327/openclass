@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} 首页 {% endblock %}
+
+{% block content_title %} 欢迎来到 OpenClass！{% endblock %}
+
+{% block content %}
+
+<div id="c_list">
+  {% if projects %}
+    {% for pro in projects %}
+  <div class="c_one">
+    <img src="{{ MEDIA_URL }}{{ pro.image }}" />
+    <div class="p_title"><a href="{{ pro.get_absolute_url }}">{{ pro.name }}</a></div>
+    <div class="sns">
+      <ul>
+        <li>成员 XXX</li>
+        <li>关注 XXX</li>
+        <li>推荐 XXX</li>
+      </ul>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+    暂时课程
+  {% endif %}
+
+</div>
+{% endblock %}
