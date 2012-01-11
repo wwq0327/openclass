@@ -6,25 +6,27 @@
 
 {% block content %}
 
+{% if project %}
 <div id="pro_info">
-  <div class="pl"><img src="/media/img/pro.jpg" /></div>
+  <div class="pl"><img src="{{ MEDIA_URL }}{{ project.image }}" /></div>
   <div class="pr">
      <div class="box">
        <h3>授者简介</h3>
-       <p class="con_p">名称：David J. Malan</p>
-       <p class="con_p">职业：哈佛大学计算机系教授</p>
+       <p class="con_p">{{ project.master }}</p>
+       <p class="con_p">{{ project.m_description }}</p>
      </div>
      <div class="box">
        <h3>课程简介</h3>
-       <p class="con_p">本课程涵盖了哈佛大学公开课2005年计算机科学的所有课程内容和复习要点。本课程涵盖了哈佛大学公开课2005年计算机科学的所有课程内容和复习要点</p>
+       <p class="con_p">{{ project.p_description }}</p>
      </div>
 
      <div class="box">
        <h3>课程创建者</h3>
-       <p class="con_p">本课程涵盖了哈佛大学公开课2005年计算机科学的所有课程内容和复习要点。</p>
+       <p class="con_p">{{ project.creater.username }}</p>
      </div>
    </div>
 </div>
+{% endif %}
 
 <div id="share-box">
     分享到: 微博  QQ空间 豆瓣
@@ -36,39 +38,21 @@
     <div class="box">
       <h3>课时列表<span class="add_sub">><a href="/project/create/"> 添加新课时</a></span></h3>
       <div>
+      {% if subjects %}
+        {% for sub in subjects %}
         <div class="zcblks1">
-          <a href="/subject/"><h3>第一集</h3></a>
-          <p>本课程注意事项</p>
+          <a href="{{ sub.get_absolute_url }}"><h3>第 {{ sub.s_num }} 课</h3></a>
+          <p>{{ sub.name }}</p>
         </div>
-
-        <div class="zcblks1">
-          <a href="/subject/"><h3>第一集</h3></a>
-          <p>本课程注意事项</p>
-        </div>
-        <div class="zcblks1">
-          <a href="/subject/"><h3>第一集</h3></a>
-          <p>本课程注意事项</p>
-        </div>
-        <div class="zcblks1">
-          <a href="/subject/"><h3>第一集</h3></a>
-          <p>本课程注意事项</p>
-        </div>
-        <div class="zcblks1">
-          <a href="/subject/"><h3>第一集</h3></a>
-          <p>本课程注意事项</p>
-        </div>
-        <div class="zcblks1">
-          <a href="/subject/"><h3>第一集</h3></a>
-          <p>本课程注意事项</p>
-        </div>
-        <div class="zcblks1">
-          <a href="/subject/"><h3>第一集</h3></a>
-          <p>本课程注意事项</p>
-        </div>
-
+        {% endfor %}
+      {% else %}
+         <p> none </p>
+      {% endif %}
       </div>
+
     </div>
   </div>
+
   <div id="right-side" class="subject_info">
     <div class="box">
       <h3>相关信息</h3>

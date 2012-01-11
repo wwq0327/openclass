@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %} 首页 {% endblock %}
+
+{% block content_title %} 计算机科学 > 第一集{% endblock %}
+
+{% block content %}
+
+{% if subject %}
+<div id="wrapper">
+  <div id="main">
+     <embed class="video" src="{{ subject.site }}" allowFullScreen="true" quality="high" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash">
+   </div>
+   <div id="right-side" class="subject_info">
+     <div class="box">
+       <h3>讲师简介</h3>
+       <p class="con_p">{{ subject.project.master }}</p>
+       <p class="con_p">{{ subject.project.m_description }}</p>
+     </div>
+     <div class="box">
+       <h3>课程简介</h3>
+       <p class="con_p">{{ subject.project.p_description }}</p>
+     </div>
+
+     <div class="box">
+       <h3>课程创建者</h3>
+       <p class="con_p">{{ subject.project.create }}</p>
+     </div>
+     <div class="dig">
+       <button class="D">记笔记</button>
+     </div>
+   </div>
+</div>
+
+<div id="share-box">
+    分享到: 微博  QQ空间 豆瓣
+
+    <a href="#">加入学习</a> <a href="#">关注本课</a>
+
+</div>
+
+<div id="wrapper">
+  <div id="main">
+    <div class="s_c">
+    <h3>评论</h3>
+    <form method="post" action="#" class="comment">
+      <textarea id="id_comment" name="comment"></textarea>
+      <button type="submit">贴上去</button>
+    </form>
+    </div>
+    <div class="s_c">
+      <h3>共有XX条评论</h3>
+        <ul class="mbt">
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+        </ul>
+     </div>
+
+    <div class="s_c">
+      <h3>共有XX篇笔记</h3>
+        <ul class="mbt">
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+        </ul>
+     </div>
+
+
+  </div>
+  <div id="right-side">
+    <div class="s_c">
+      <h3>本课程学员</h3>
+          <ul class="j_m_l">
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+            <li><img src="/media/img/user.jpg" alt="user"></img></li>
+
+          </ul>
+     </div>
+
+    <div class="s_c">
+      <h3>提问</h3>
+        <ul class="mbt">
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtr"><span class="s_c_h">wyttt 评论 道：</span>
+            <div class="s_c_c">东西不错，特来说说。</div>
+          </li>
+        </ul>
+    </div>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
