@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load comments %}
+{% load gravatar %}
 {% block title %} 首页 {% endblock %}
 
 {% block content_title %} 计算机科学 > 第一集{% endblock %}
@@ -15,11 +16,11 @@
      <div class="box">
        <h3>讲师简介</h3>
        <p class="con_p">{{ subject.project.master }}</p>
-       <p class="con_p">{{ subject.project.m_description }}</p>
+       <p class="con_p">{{ subject.project.m_description|escape }}</p>
      </div>
      <div class="box">
        <h3>课程简介</h3>
-       <p class="con_p">{{ subject.project.p_description }}</p>
+       <p class="con_p">{{ subject.project.p_description|escape }}</p>
      </div>
 
      <div class="box">
@@ -57,7 +58,7 @@
 
         <ul class="mbt">
         {% for comment in comment_list %}
-          <li class="mbtl"><img src="/media/img/user.jpg"></img></li>
+          <li class="mbtl"><img src="{% gravatar_url comment.user_email 48 %}"></img></li>
           <li class="mbtr"><span class="s_c_h">{{ comment.user.username }} 在 {{ comment.submit_date|date:"Y-m-d H:i" }} 评论道：</span>
             <div class="s_c_c">{{ comment.comment|escape|urlizetrunc:40|linebreaks }}</div>
           </li>
