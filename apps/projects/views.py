@@ -43,6 +43,9 @@ def subj_create(request, prj_pk):
 
     if request.method == 'POST':
         form = SubjectForm(request.POST)
+        if form.is_valid():
+            sub = form.save(user=request.user, project=prj)
+            return HttpResponseRedirect(sub.get_absolute_url())
     else:
         form = SubjectForm()
 

@@ -19,18 +19,18 @@ class Project(models.Model):
         ('0', u'其它')
         )
 
-    name = models.CharField(max_length=255)
+    name = models.CharField(u'课题名称', max_length=255)
     creater = models.ForeignKey(User)
-    master = models.TextField()
-    m_description = models.TextField(validators=[MaxLengthValidator(500)])
-    category = models.CharField(max_length=30, choices=CATEGORY_CHOICES,
+    master = models.CharField(u'讲师', max_length=60)
+    m_description = models.TextField(u'讲师简介', validators=[MaxLengthValidator(500)], help_text=u"关于讲师的一些简明介绍")
+    category = models.CharField(u'分类', max_length=30, choices=CATEGORY_CHOICES,
                                 null=True, blank=False)
-    p_description = models.TextField(validators=[MaxLengthValidator(500)])
-    pub_date = models.DateTimeField(auto_now_add=True, default=datetime.datetime.now)
+    p_description = models.TextField(u'课程简介', validators=[MaxLengthValidator(500)])
+    pub_date = models.DateTimeField(editable=False)
     updated_date = models.DateTimeField(editable=False)
-    total = models.IntegerField()
-    image = models.ImageField(upload_to="uploads")
-    tags = TagField(blank=True)
+    total = models.IntegerField(u'总课时数')
+    image = models.ImageField(u'图片', upload_to="uploads")
+    tags = TagField(u'标签', blank=True, help_text=u"给本课程打上标签，标签间请用空间分隔")
 
     class Meta:
         ordering = ['-pub_date']
@@ -52,18 +52,20 @@ class Project(models.Model):
     obj_tags = property(_get_tags, _set_tags)
 
     def save(self, *args, **kwargs):
+        if not self.pk:
+            self.pub_date = datetime.datetime.now()
         self.updated_date = datetime.datetime.now()
 
         super(Project, self).save(*args, **kwargs)
 
 class Subject(models.Model):
     project = models.ForeignKey(Project)
-    name = models.CharField(max_length=255)
+    name = models.CharField(u'课名', max_length=255)
     creater = models.ForeignKey(User)
-    site = models.URLField()
-    pub_date = models.DateTimeField(auto_now_add=True, default=datetime.datetime.now)
+    site = models.URLField(u'视频地址')
+    pub_date = models.DateTimeField(editable=False)
     updated_date = models.DateTimeField(editable=False)
-    s_num = models.IntegerField()
+    s_num = models.IntegerField(u'课时序号')
 
     class Meta:
         ordering = ['s_num']
@@ -72,6 +74,8 @@ class Subject(models.Model):
         return self.site
 
     def save(self, *args, **kwargs):
+        if not self.pk:
+            self.pub_date = datetime.datetime.now()
         self.updated_date = datetime.datetime.now()
 
         super(Subject, self).save(*args, **kwargs)
