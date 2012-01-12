@@ -7,4 +7,5 @@ urlpatterns = patterns('',
                        url(r'^project/create/$', 'projects.views.prj_create'),
                        url(r'^project/(?P<prj_pk>\d+)/create/$', 'projects.views.subj_create'),
                        url(r'^project/prj_s/$', 'projects.views.prjstudy'),
+                       url(r'^project/prj_rm/$', 'projects.views.un_join'),
 )

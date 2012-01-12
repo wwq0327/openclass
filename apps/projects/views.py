@@ -22,15 +22,27 @@ def project(request, pro_pk):
     project = get_object_or_404(Project, pk=pro_pk)
     subjects = Subject.objects.filter(project=project)
 
+    if request.user.is_authenticated():
+        is_join = PrjStudy.objects.filter(projects=project, user=request.user)
+    else:
+        is_join = False
+
     var = RequestContext(request, {'project': project,
-                                   'subjects': subjects
+                                   'subjects': subjects,
+                                   'is_join': is_join
                                    })
     return render_to_response('projects/project.html', var)
 
 def subject(request, sub_pk):
     subject = get_object_or_404(Subject, pk=sub_pk)
+    if request.user.is_authenticated():
+        is_join = PrjStudy.objects.filter(projects=subject.project, user=request.user)
+    else:
+        is_join = False
 
-    var = RequestContext(request, {'subject': subject})
+    var = RequestContext(request, {'subject': subject,
+                                   'is_join': is_join
+                                   })
 
     return render_to_response('projects/subject.html', var)
 
@@ -67,12 +79,18 @@ def prjstudy(request):
     pk = request.GET.get('id')
     prj = Project.objects.get(pk=int(pk))
     user = request.user
-    join_s = PrjStudy(projcets=prj, user=user)
+    join_s = PrjStudy(projects=prj, user=user)
     join_s.save()
 
-    return HttpResponseRedirect(join_s.get_absolute_url())
+    return HttpResponse("")
 
+@login_required
+def un_join(request):
+    pk = request.GET.get('id')
+    prj = Project.objects.get(pk=int(pk))
+    user = request.user
+    join_s = PrjStudy.objects.filter(projects=prj, user=user)
+    if join_s:
+        join_s.delete()
 
-
-
-
+    return HttpResponse("")

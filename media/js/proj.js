@@ -36,21 +36,14 @@ jQuery('html').ajaxSend(function(event, xhr, settings) {
     }
 });
 
-/*
-function join_s(prj_pk) {
-    jQuery.ajax({
-        type: "POST",
-        url: "/project/prj_s/",
-        'id': prj_pk,
-        sucess: function() {
-            alert('成功');
-        },
+function join_s(id) {
+    //var join = $(".prj_join");
+    $.get('/project/prj_s/', {'id': id}, function() {
+        //alert(join);
+        $('span.prj_join').html('a');
     });
 }
-*/
 
-function join_s(id) {
-    $.get('/project/prj_s/', {'id': id}, function(ret) {
-        alert(ret);
-    });
+function un_join(id) {
+    $.get('/project/prj_rm/', {'id': id});
 }
