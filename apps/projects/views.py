@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.http import Http404, HttpResponseRedirect, HttpResponseForbidden
+from django.http import Http404, HttpResponseRedirect, HttpResponseForbidden, HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
@@ -63,12 +63,16 @@ def subj_create(request, prj_pk):
     return render_to_response('projects/subj_create.html', var)
 
 @login_required
-def prjstudy(request, prj_pk):
-    prj = Project.objects.get(pk=prj_pk)
+def prjstudy(request):
+    pk = request.GET.get('id')
+    prj = Project.objects.get(pk=int(pk))
     user = request.user
-
-    join_s = PrjStudy(projcet=prj, user=user)
+    join_s = PrjStudy(projcets=prj, user=user)
     join_s.save()
+
+    return HttpResponseRedirect(join_s.get_absolute_url())
+
+
 
 
 
