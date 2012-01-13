@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load comments %}
 {% load gravatar %}
-{% block title %} 首页 {% endblock %}
+{% block title %} {% if subject %} {{ subject.project.name }} > 第 {{ subject.s_num }} 集: {{ subject.name }} {% endif %}{% endblock %}
 
 {% block content_title %} {% if subject %} {{ subject.project.name }} > 第 {{ subject.s_num }} 集: {{ subject.name }} {% endif %}{% endblock %}
 

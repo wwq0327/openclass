@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %} 首页 {% endblock %}
+{% block title %} {% if project %} {{ project.name }} {% endif %} {% endblock %}
 
 {% block content_title %} <span class="pro_title">{% if project %} {{ project.name }} {% endif %} </div> {% endblock %}
 
