@@ -2,7 +2,7 @@
 
 {% block title %} 首页 {% endblock %}
 
-{% block content_title %} <span class="pro_title">计算机科学</div> {% endblock %}
+{% block content_title %} <span class="pro_title">{% if project %} {{ project.name }} {% endif %} </div> {% endblock %}
 
 {% block content %}
 
