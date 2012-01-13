@@ -46,6 +46,7 @@ def subject(request, sub_pk):
 
     return render_to_response('projects/subject.html', var)
 
+@login_required
 def prj_create(request):
 
     if request.method == 'POST':
@@ -59,6 +60,7 @@ def prj_create(request):
     var = RequestContext(request, {'form': form})
     return render_to_response('projects/prj_create.html', var)
 
+@login_required
 def subj_create(request, prj_pk):
     prj = get_object_or_404(Project, pk=prj_pk)
 
