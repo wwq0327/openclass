@@ -9,13 +9,18 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 from projects.models import Project, Subject
+from people.models import PrjStudy
 
 @login_required
 def home(request):
 
     user = request.user
     projects = user.project_set.all()
+    prj_study = user.prjstudy_set.all()
 
-    var = RequestContext(request, {'projects': projects})
+    var = RequestContext(request, {'projects': projects,
+                                   'prj_study': prj_study
+                                   })
 
     return render_to_response('people/home.html', var)
+

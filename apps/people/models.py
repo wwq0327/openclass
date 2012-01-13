@@ -23,6 +23,9 @@ class PrjStudy(models.Model):
         return self.projects.get_absolute_url()
 
     def save(self, *args, **kwargs):
+        """
+        todo: 如何才能只保存一次数据
+        """
         if not self.pk:
             self.join_date = datetime.datetime.now()
         super(PrjStudy, self).save(*args, **kwargs)

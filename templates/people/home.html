@@ -21,6 +21,19 @@ hello, {{ user.username }}
           你暂时还未创建课程
         {% endif  %}
     </div>
+
+    <div class="box">
+      <h3>你参加学习的课程</h3>
+      <ul>
+        {% if prj_study %}
+          {% for prj in prj_study %}
+            <li><a href="{{ prj.projects.get_absolute_url }}">{{ prj.projects.name }}</a> 创建于 {{ prj.projects.pub_date|date:"Y-m-d H:i" }}</li>
+          {% endfor %}
+      </ul>
+        {% else %}
+          你暂时还未创建课程
+        {% endif  %}
+    </div>
   </div>
   <div id="right-side">
     <div class="box">

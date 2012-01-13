@@ -40,8 +40,8 @@ function join_s(id) {
     //var join = $(".prj_join");
     $.get('/project/prj_s/', {'id': id}, function() {
         //alert(join);
-        $('span.prj_join').html('a');
-    });
+        jQuery('span.prj_join').html('projects/a.html');
+    })
 }
 
 function un_join(id) {
