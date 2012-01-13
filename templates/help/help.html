@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} 帮助 {% endblock %}
+
+{% block content_title %}帮助{% endblock %}
+
+{% block content %}
+
+<div id="wrapper">
+  <div id="right-side">
+    帮助侧边栏
+  </div>
+  <div id="main">
+    {{ md|safe }}
+  </div>
+</div>
+
+{% endblock %}
