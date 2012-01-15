@@ -37,10 +37,10 @@ jQuery('html').ajaxSend(function(event, xhr, settings) {
 });
 
 function join_s(id) {
-    //var join = $(".prj_join");
+    var $join = jQuery(".prj_join");
     $.get('/project/prj_s/', {'id': id}, function() {
-        //alert(join);
-        jQuery('span.prj_join').html('projects/a.html');
+        alert(join.text());
+        //jQuery('span.prj_join').html('projects/a.html');
     })
 }
 
