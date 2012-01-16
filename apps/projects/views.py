@@ -81,8 +81,9 @@ def prjstudy(request):
     pk = request.GET.get('id')
     prj = Project.objects.get(pk=int(pk))
     user = request.user
-    join_s = PrjStudy(projects=prj, user=user)
-    join_s.save()
+    join_s, create = PrjStudy.objects.get_or_create(projects=prj, user=user)
+    if create:
+        join_s.save()
 
     return HttpResponse("")
 

@@ -37,15 +37,15 @@ class Project(models.Model):
 
     name = models.CharField(u'课题名称', max_length=255)
     creater = models.ForeignKey(User)
-    master = models.CharField(u'讲师', max_length=60)
+    master = models.CharField(u'讲师', max_length=60, blank=True)
     m_description = models.TextField(u'讲师简介', validators=[MaxLengthValidator(500)], help_text=u"关于讲师的一些简明介绍")
     category = models.CharField(u'分类', max_length=30, choices=CATEGORY_CHOICES,
-                                null=True, blank=False)
+                                null=True, blank=True)
     p_description = models.TextField(u'课程简介', validators=[MaxLengthValidator(500)])
     pub_date = models.DateTimeField(editable=False)
     updated_date = models.DateTimeField(editable=False)
     total = models.IntegerField(u'总课时数')
-    image = models.ImageField(u'图片', upload_to=determine_image_upload_path, storage=ImageStorage())
+    image = models.ImageField(u'图片', upload_to=determine_image_upload_path, storage=ImageStorage(), blank=True, null=True)
 
     tags = TagField(u'标签', blank=True, help_text=u"给本课程打上标签，标签间请用空间分隔")
 
