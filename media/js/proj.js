@@ -36,14 +36,17 @@ jQuery('html').ajaxSend(function(event, xhr, settings) {
     }
 });
 
+
 function join_s(id) {
     var $join = jQuery(".prj_join");
-    $.get('/project/prj_s/', {'id': id}, function() {
-        alert(join.text());
-        //jQuery('span.prj_join').html('projects/a.html');
-    })
+    $.get('/project/prj_s/', {'id': id});
+    jQuery('.prj_join').html('<a href="javascript:un_join('+ id +')">退出该课程</a>');
+    alert('你加入了本课程');
 }
 
 function un_join(id) {
     $.get('/project/prj_rm/', {'id': id});
+    jQuery(".prj_join").html('<a href="javascript:join_s(' + id + ')">加入学习</a>')
 }
+
+;
