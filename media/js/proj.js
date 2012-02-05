@@ -47,6 +47,4 @@ function join_s(id) {
 function un_join(id) {
     $.get('/project/prj_rm/', {'id': id});
     jQuery(".prj_join").html('<a href="javascript:join_s(' + id + ')">加入学习</a>')
-}
-
-;
+};
